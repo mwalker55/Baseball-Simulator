@@ -12,12 +12,14 @@ namespace Baseball_Simulator
         public decimal[] Team2;
         public decimal[] Pitchers;
         public decimal leagueOBP { get; }
+        private Random rand;
         public Simulator(decimal [] team1, decimal[] team2, decimal[] pitchers)
         {
             Team1 = team1;
             Team2 = team2;
             Pitchers = pitchers;
             leagueOBP = (Team1.Average() + Team2.Average()) / 2;
+            rand = new Random();
         }
 
         public Tuple<List<int>, List<int>> runGame()
@@ -45,107 +47,64 @@ namespace Baseball_Simulator
             int inning = 1;
             int currTeam1AB = 0;
             int currTeam2AB = 0;
-            int numOuts = 0;
-            Random rand = new Random();
             while (inning <= 9 || (team1_scores.Sum() == team2_scores.Sum()))
             {
-                int[] current_base = { 0, 0, 0 };
-                int tm1InningScore = 0;
-                while (numOuts < 3)
-                {
-                    decimal compare = (decimal)rand.NextDouble();
-                    if (compare.CompareTo(team1_log5[currTeam1AB]) >= 0)
-                        numOuts++;
-                    else
-                    {
-                        int hitType = (int)(rand.NextDouble() * 10);
-                        if (hitType >= 0 && hitType <= 5)
-                        {
-                            tm1InningScore += current_base[1];
-                            current_base[1] = 0;
-                            tm1InningScore += current_base[2];
-                            current_base[2] = 0;
-                            if (current_base[0] == 1)
-                                current_base[2] = 1;
-                            current_base[0] = 1;
-                        }
-                        else if (hitType == 6 || hitType == 7)
-                        {
-                            tm1InningScore += current_base.Sum();
-                            for (int i = 0; i <= 2; i++)
-                                current_base[i] = 0;
-                            current_base[1] = 1;
-                        }
-                        else if (hitType == 8)
-                        {
-                            tm1InningScore += current_base.Sum();
-                            for (int i = 0; i <= 2; i++)
-                                current_base[i] = 0;
-                            current_base[2] = 1;
-                        }
-                        else
-                        {
-                            tm1InningScore += current_base.Sum()+1;
-                            for (int i = 0; i <= 2; i++)
-                                current_base[i] = 0;
-                        }
-                    }
-                    currTeam1AB++;
-                    currTeam1AB %= 9;
-                }
-                for (int i = 0; i <= 2; i++)
-                    current_base[i] = 0;
-                team1_scores.Add(tm1InningScore);
-                numOuts = 0;
+                team1_scores.Add(halfInning(ref currTeam1AB, team1_log5));
                 if (inning == 9 && team2_scores.Sum() > team1_scores.Sum())
                     break;
-                int tm2InningScore = 0;
-                while (numOuts < 3)
-                {
-                    decimal compare = (decimal)rand.NextDouble();
-                    if (compare.CompareTo(team2_log5[currTeam2AB]) >= 0)
-                        numOuts++;
-                    else
-                    {
-                        int hitType = (int)(rand.NextDouble() * 10);
-                        if (hitType >= 0 && hitType <= 5)
-                        {
-                            tm2InningScore += current_base[1];
-                            current_base[1] = 0;
-                            tm2InningScore += current_base[2];
-                            current_base[2] = 0;
-                            if (current_base[0] == 1)
-                                current_base[2] = 1;
-                            current_base[0] = 1;
-                        }
-                        else if (hitType == 6 || hitType == 7)
-                        {
-                            tm2InningScore += current_base.Sum();
-                            for (int i = 0; i <= 2; i++)
-                                current_base[i] = 0;
-                            current_base[1] = 1;
-                        }
-                        else if (hitType == 8)
-                        {
-                            tm2InningScore += current_base.Sum();
-                            for (int i = 0; i <= 2; i++)
-                                current_base[i] = 0;
-                            current_base[2] = 1;
-                        }
-                        else
-                        {
-                            tm2InningScore += current_base.Sum() + 1;
-                            for (int i = 0; i <= 2; i++)
-                                current_base[i] = 0;
-                        }
-                    }
-                    currTeam2AB++;
-                    currTeam2AB %= 9;
-                }
-                team2_scores.Add(tm2InningScore);
-                numOuts = 0;
+                team2_scores.Add(halfInning(ref currTeam2AB, team2_log5));
                 inning++;
             }
+        }
+
+        private int halfInning(ref int currBatter, decimal[] log5)
+        {
+            int[] current_base = { 0, 0, 0 };
+            int tmInningScore = 0;
+            int numOuts = 0;
+            while (numOuts < 3)
+            {
+                decimal compare = (decimal)rand.NextDouble();
+                if (compare.CompareTo(log5[currBatter]) >= 0)
+                    numOuts++;
+                else
+                {
+                    int hitType = (int)(rand.NextDouble() * 10);
+                    if (hitType >= 0 && hitType <= 5)
+                    {
+                        tmInningScore += current_base[1];
+                        current_base[1] = 0;
+                        tmInningScore += current_base[2];
+                        current_base[2] = 0;
+                        if (current_base[0] == 1)
+                            current_base[2] = 1;
+                        current_base[0] = 1;
+                    }
+                    else if (hitType == 6 || hitType == 7)
+                    {
+                        tmInningScore += current_base.Sum();
+                        for (int i = 0; i <= 2; i++)
+                            current_base[i] = 0;
+                        current_base[1] = 1;
+                    }
+                    else if (hitType == 8)
+                    {
+                        tmInningScore += current_base.Sum();
+                        for (int i = 0; i <= 2; i++)
+                            current_base[i] = 0;
+                        current_base[2] = 1;
+                    }
+                    else
+                    {
+                        tmInningScore += current_base.Sum() + 1;
+                        for (int i = 0; i <= 2; i++)
+                            current_base[i] = 0;
+                    }
+                }
+                currBatter++;
+                currBatter %= 9;
+            }
+            return tmInningScore;
         }
     }
 }
