@@ -76,7 +76,9 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -104,12 +106,12 @@
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(92, 37);
+            this.label1.Location = new System.Drawing.Point(139, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 41);
+            this.label1.Size = new System.Drawing.Size(108, 41);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Team 1";
+            this.label1.Text = "Away";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -117,12 +119,12 @@
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(520, 37);
+            this.label2.Location = new System.Drawing.Point(545, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 41);
+            this.label2.Size = new System.Drawing.Size(116, 41);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Team 2";
+            this.label2.Text = "Home";
             // 
             // label3
             // 
@@ -844,29 +846,47 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(321, 575);
+            this.label27.Location = new System.Drawing.Point(272, 571);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(102, 15);
+            this.label27.Size = new System.Drawing.Size(80, 15);
             this.label27.TabIndex = 79;
-            this.label27.Text = "Average OBP:  ";
+            this.label27.Text = "Away Score";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(464, 571);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(86, 15);
+            this.label28.TabIndex = 80;
+            this.label28.Text = "Home Score";
             // 
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(429, 576);
-            this.textBox1.MaxLength = 4;
+            this.textBox1.Location = new System.Drawing.Point(261, 589);
             this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 14);
-            this.textBox1.TabIndex = 80;
+            this.textBox1.TabIndex = 81;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Location = new System.Drawing.Point(450, 589);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(281, 14);
+            this.textBox2.TabIndex = 82;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 658);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.numericUpDown11);
             this.Controls.Add(this.numericUpDown12);
@@ -994,7 +1014,9 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

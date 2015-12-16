@@ -43,9 +43,11 @@ namespace Baseball_Simulator
                 numericUpDown7.Value, numericUpDown8.Value, numericUpDown9.Value };
             decimal[] team2_hitters = { numericUpDown20.Value, numericUpDown19.Value, numericUpDown18.Value, numericUpDown17.Value, numericUpDown16.Value,
                 numericUpDown15.Value, numericUpDown14.Value, numericUpDown13.Value, numericUpDown12.Value };
-            decimal[] pitchersOAV = { numericUpDown10.Value, numericUpDown11.Value };
-            decimal league_average = (team1_hitters.Average() + team2_hitters.Average()) / 2;
-            textBox1.Text = "" + league_average;
+            decimal[] pitchersOBPA = { numericUpDown10.Value, numericUpDown11.Value };
+            Simulator simulation = new Simulator(team1_hitters, team2_hitters, pitchersOBPA);
+            Tuple<List<int>, List<int>> collection = simulation.runGame();
+            textBox1.Text = "" + collection.Item1.Sum();
+            textBox2.Text = "" + collection.Item2.Sum();
         }
     }
 }
