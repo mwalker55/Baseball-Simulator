@@ -46,12 +46,11 @@ namespace Baseball_Simulator
             int currTeam1AB = 0;
             int currTeam2AB = 0;
             int numOuts = 0;
-            int[] current_base = { 0 , 0 , 0 };
+            Random rand = new Random();
             while (inning <= 9 || (team1_scores.Sum() == team2_scores.Sum()))
             {
-                Console.WriteLine(inning);
+                int[] current_base = { 0, 0, 0 };
                 int tm1InningScore = 0;
-                Random rand = new Random();
                 while (numOuts < 3)
                 {
                     decimal compare = (decimal)rand.NextDouble();
@@ -101,7 +100,6 @@ namespace Baseball_Simulator
                 if (inning == 9 && team2_scores.Sum() > team1_scores.Sum())
                     break;
                 int tm2InningScore = 0;
-                rand = new Random();
                 while (numOuts < 3)
                 {
                     decimal compare = (decimal)rand.NextDouble();
@@ -114,7 +112,7 @@ namespace Baseball_Simulator
                         {
                             tm2InningScore += current_base[1];
                             current_base[1] = 0;
-                            tm1InningScore += current_base[2];
+                            tm2InningScore += current_base[2];
                             current_base[2] = 0;
                             if (current_base[0] == 1)
                                 current_base[2] = 1;
@@ -146,8 +144,6 @@ namespace Baseball_Simulator
                 }
                 team2_scores.Add(tm2InningScore);
                 numOuts = 0;
-                for (int i = 0; i <= 2; i++)
-                    current_base[i] = 0;
                 inning++;
             }
         }
