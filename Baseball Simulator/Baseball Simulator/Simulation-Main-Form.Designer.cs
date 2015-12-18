@@ -865,7 +865,7 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(261, 589);
+            this.textBox1.Location = new System.Drawing.Point(275, 589);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 14);
             this.textBox1.TabIndex = 81;
@@ -874,7 +874,7 @@
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.Control;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(450, 589);
+            this.textBox2.Location = new System.Drawing.Point(467, 589);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(281, 14);
             this.textBox2.TabIndex = 82;

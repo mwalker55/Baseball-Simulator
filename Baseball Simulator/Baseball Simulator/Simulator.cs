@@ -8,12 +8,12 @@ namespace Baseball_Simulator
 {
     class Simulator
     {
-        public decimal[] Team1;
-        public decimal[] Team2;
-        public decimal[] Pitchers;
-        public decimal leagueOBP { get; }
+        private decimal[] Team1;
+        private decimal[] Team2;
+        private decimal[] Pitchers;
+        private decimal leagueOBP;
         private Random rand;
-        public Simulator(decimal [] team1, decimal[] team2, decimal[] pitchers)
+        public Simulator(decimal[] team1, decimal[] team2, decimal[] pitchers)
         {
             Team1 = team1;
             Team2 = team2;
