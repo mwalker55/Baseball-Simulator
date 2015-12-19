@@ -30,15 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.team1Player1 = new System.Windows.Forms.Button();
             this.team1Player2 = new System.Windows.Forms.Button();
             this.team1Player3 = new System.Windows.Forms.Button();
@@ -57,8 +49,8 @@
             this.team2Player7 = new System.Windows.Forms.Button();
             this.team2Player8 = new System.Windows.Forms.Button();
             this.team2Player9 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
+            this.team1PitcherButton = new System.Windows.Forms.Button();
+            this.team2PitcherButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -85,116 +77,14 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Home";
             // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(136, 438);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(135, 15);
-            this.label25.TabIndex = 42;
-            this.label25.Text = "Pitcher OBP Against";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(373, 530);
+            this.button1.Location = new System.Drawing.Point(364, 471);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 46;
             this.button1.Text = "Run!";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown10
-            // 
-            this.numericUpDown10.DecimalPlaces = 3;
-            this.numericUpDown10.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            196608});
-            this.numericUpDown10.Location = new System.Drawing.Point(169, 466);
-            this.numericUpDown10.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(75, 21);
-            this.numericUpDown10.TabIndex = 56;
-            this.numericUpDown10.Value = new decimal(new int[] {
-            250,
-            0,
-            0,
-            196608});
-            // 
-            // numericUpDown11
-            // 
-            this.numericUpDown11.DecimalPlaces = 3;
-            this.numericUpDown11.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            196608});
-            this.numericUpDown11.Location = new System.Drawing.Point(586, 466);
-            this.numericUpDown11.Maximum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(75, 21);
-            this.numericUpDown11.TabIndex = 78;
-            this.numericUpDown11.Value = new decimal(new int[] {
-            250,
-            0,
-            0,
-            196608});
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(553, 438);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(135, 15);
-            this.label14.TabIndex = 68;
-            this.label14.Text = "Pitcher OBP Against";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(272, 571);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(80, 15);
-            this.label27.TabIndex = 79;
-            this.label27.Text = "Away Score";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(464, 571);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(86, 15);
-            this.label28.TabIndex = 80;
-            this.label28.Text = "Home Score";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(275, 589);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 14);
-            this.textBox1.TabIndex = 81;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(467, 589);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 14);
-            this.textBox2.TabIndex = 82;
             // 
             // team1Player1
             // 
@@ -376,11 +266,34 @@
             this.team2Player9.UseVisualStyleBackColor = true;
             this.team2Player9.Click += new System.EventHandler(this.team2Player9_Click);
             // 
+            // team1PitcherButton
+            // 
+            this.team1PitcherButton.Location = new System.Drawing.Point(127, 399);
+            this.team1PitcherButton.Name = "team1PitcherButton";
+            this.team1PitcherButton.Size = new System.Drawing.Size(132, 23);
+            this.team1PitcherButton.TabIndex = 101;
+            this.team1PitcherButton.Text = "Pitcher Name";
+            this.team1PitcherButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.team1PitcherButton.UseVisualStyleBackColor = true;
+            this.team1PitcherButton.Click += new System.EventHandler(this.team1PitcherButton_Click);
+            // 
+            // team2PitcherButton
+            // 
+            this.team2PitcherButton.Location = new System.Drawing.Point(532, 399);
+            this.team2PitcherButton.Name = "team2PitcherButton";
+            this.team2PitcherButton.Size = new System.Drawing.Size(142, 23);
+            this.team2PitcherButton.TabIndex = 102;
+            this.team2PitcherButton.Text = "Pitcher Name";
+            this.team2PitcherButton.UseVisualStyleBackColor = true;
+            this.team2PitcherButton.Click += new System.EventHandler(this.team2PitcherButton_Click);
+            // 
             // Home_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 658);
+            this.ClientSize = new System.Drawing.Size(805, 521);
+            this.Controls.Add(this.team2PitcherButton);
+            this.Controls.Add(this.team1PitcherButton);
             this.Controls.Add(this.team2Player9);
             this.Controls.Add(this.team2Player8);
             this.Controls.Add(this.team2Player7);
@@ -399,23 +312,13 @@
             this.Controls.Add(this.team1Player3);
             this.Controls.Add(this.team1Player2);
             this.Controls.Add(this.team1Player1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label28);
-            this.Controls.Add(this.label27);
-            this.Controls.Add(this.numericUpDown11);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.numericUpDown10);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label25);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Home_Page";
             this.Text = "Baseball Simulator";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,15 +328,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.NumericUpDown numericUpDown10;
-        private System.Windows.Forms.NumericUpDown numericUpDown11;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button team1Player1;
         private System.Windows.Forms.Button team1Player2;
         private System.Windows.Forms.Button team1Player3;
@@ -452,6 +347,8 @@
         private System.Windows.Forms.Button team2Player7;
         private System.Windows.Forms.Button team2Player8;
         private System.Windows.Forms.Button team2Player9;
+        private System.Windows.Forms.Button team1PitcherButton;
+        private System.Windows.Forms.Button team2PitcherButton;
     }
 }
 

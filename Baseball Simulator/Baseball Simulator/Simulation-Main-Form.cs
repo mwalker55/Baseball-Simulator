@@ -14,9 +14,13 @@ namespace Baseball_Simulator
     {
         private Player[] team1Players;
         private Player[] team2Players;
+        private Player team1Pitcher;
+        private Player team2Pitcher;
         public Home_Page()
         {
             InitializeComponent();
+            team1Pitcher = new Player();
+            team2Pitcher = new Player();
             team1Players = new Player[9];
             team2Players = new Player[9];
             for(int i = 0; i < 9; i++)
@@ -138,6 +142,18 @@ namespace Baseball_Simulator
         {
             team2Players[8].ShowDialog();
             team2Player9.Text = team2Players[8].name;
+        }
+
+        private void team1PitcherButton_Click(object sender, EventArgs e)
+        {
+            team1Pitcher.ShowDialog();
+            team1PitcherButton.Text = team1Pitcher.name;
+        }
+
+        private void team2PitcherButton_Click(object sender, EventArgs e)
+        {
+            team2Pitcher.ShowDialog();
+            team2PitcherButton.Text = team2Pitcher.name;
         }
     }
 }
