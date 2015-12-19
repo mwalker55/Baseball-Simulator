@@ -2,8 +2,9 @@ C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Si
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\bin\Debug\Baseball Simulator.exe
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\bin\Debug\Baseball Simulator.pdb
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball Simulator.csprojResolveAssemblyReference.cache
-C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.Form1.resources
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.Properties.Resources.resources
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball Simulator.csproj.GenerateResource.Cache
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball Simulator.exe
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball Simulator.pdb
+C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.Player.resources
+C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.Home_Page.resources
