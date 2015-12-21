@@ -2,7 +2,7 @@
 ##About
 Ongoing project designed at creating a semi-realistic baseball simulator. 
 
-Currently generates log5 on-base probabilities and simulates game using fixed on-base type probabilities.
+Currently not functional - need to confirm probabilities on PA decision tree.  
 ##Running
 To run this program, clone the repo and open the solution in Visual Studio and start it.  
 
