@@ -8,103 +8,81 @@ namespace Baseball_Simulator
 {
     class Simulator
     {
-        private decimal[] Team1;
-        private decimal[] Team2;
-        private decimal[] Pitchers;
-        private decimal leagueOBP;
+        private Player[] team1Players;
+        private Player[] team2Players;
+        private Player team1Pitcher, team2Pitcher, leagueAveragePlayer;
         private Random rand;
-        public Simulator(decimal[] team1, decimal[] team2, decimal[] pitchers)
+        public Simulator(Player[] Team1Players, Player[] Team2Players, Player Team1Pitcher, Player Team2Pitcher)
         {
-            Team1 = team1;
-            Team2 = team2;
-            Pitchers = pitchers;
-            leagueOBP = (Team1.Average() + Team2.Average()) / 2;
+            team1Players = Team1Players;
+            team2Players = Team2Players;
+            team1Pitcher = Team1Pitcher;
+            team2Pitcher = Team2Pitcher;
+            leagueAveragePlayer = new Player();
+            computeLeagueAverage();
+            normalizeTeamStats();
             rand = new Random();
         }
 
-        public Tuple<List<int>, List<int>> runGame()
+        private void computeLeagueAverage()
         {
-            List<int> team1_scores = new List<int>();
-            List<int> team2_scores = new List<int>();
-            decimal[] team1_log5 = new decimal[9];
-            decimal[] team2_log5 = new decimal[9];
-            log5Calculator(ref team1_log5, Team1, Pitchers[1]);
-            log5Calculator(ref team2_log5, Team2, Pitchers[0]);
-            simulateGame(ref team1_scores, ref team2_scores, team1_log5, team2_log5);
-            return Tuple.Create(team1_scores, team2_scores);
+            leagueAveragePlayer.walk_percentage = (team1Players.Average(item => item.walk_percentage)+team2Players.Average(item => item.walk_percentage))/2;
+            leagueAveragePlayer.single_percentage = (team1Players.Average(item => item.single_percentage) + team2Players.Average(item => item.single_percentage)) / 2;
+            leagueAveragePlayer.double_percentage = (team1Players.Average(item => item.double_percentage) + team2Players.Average(item => item.double_percentage)) / 2;
+            leagueAveragePlayer.triple_percentage = (team1Players.Average(item => item.triple_percentage) + team2Players.Average(item => item.triple_percentage)) / 2;
+            leagueAveragePlayer.HR_percentage = (team1Players.Average(item => item.HR_percentage) + team2Players.Average(item => item.HR_percentage)) / 2;
         }
-
-        private void log5Calculator(ref decimal[] log5, decimal[] teamOBP, decimal pitcherOBPA)
+        private void normalizeTeamStats()
         {
-            for(int i = 0; i < log5.Length; i++)
+            for(int i = 0; i < team1Players.Length; i++)
             {
-                log5[i] = (teamOBP[i] * pitcherOBPA / leagueOBP) / ((teamOBP[i] * pitcherOBPA / leagueOBP) + ((1 - teamOBP[i])*(1 - pitcherOBPA) / (1 - leagueOBP)));
+                convertToLog5(ref team1Players[i], team2Pitcher);
+                convertToLog5(ref team2Players[i], team1Pitcher);
             }
         }
 
-        private void simulateGame(ref List<int> team1_scores, ref List<int> team2_scores, decimal[] team1_log5, decimal[] team2_log5)
+        private void convertToLog5(ref Player toBeConverted, Player pitcherFacing)
         {
-            int inning = 1;
-            int currTeam1AB = 0;
-            int currTeam2AB = 0;
-            while (inning <= 9 || (team1_scores.Sum() == team2_scores.Sum()))
-            {
-                team1_scores.Add(halfInning(ref currTeam1AB, team1_log5));
-                if (inning == 9 && team2_scores.Sum() > team1_scores.Sum())
-                    break;
-                team2_scores.Add(halfInning(ref currTeam2AB, team2_log5));
-                inning++;
-            }
+            toBeConverted.walk_percentage = log5Function(toBeConverted.walk_percentage, pitcherFacing.walk_percentage, leagueAveragePlayer.walk_percentage);
+            toBeConverted.single_percentage = log5Function(toBeConverted.single_percentage, pitcherFacing.single_percentage, leagueAveragePlayer.single_percentage);
+            toBeConverted.double_percentage = log5Function(toBeConverted.double_percentage, pitcherFacing.double_percentage, leagueAveragePlayer.double_percentage);
+            toBeConverted.triple_percentage = log5Function(toBeConverted.triple_percentage, pitcherFacing.triple_percentage, leagueAveragePlayer.triple_percentage);
+            toBeConverted.HR_percentage = log5Function(toBeConverted.HR_percentage, pitcherFacing.HR_percentage, leagueAveragePlayer.HR_percentage);
         }
 
-        private int halfInning(ref int currBatter, decimal[] log5)
+        private decimal log5Function(decimal playerValue, decimal pitcherValue, decimal leagueAverage)
         {
-            int[] current_base = { 0, 0, 0 };
-            int tmInningScore = 0;
+            return (playerValue * pitcherValue / leagueAverage) / ((playerValue * pitcherValue / leagueAverage) + (1 - playerValue) * (1 - pitcherValue) / (1 - leagueAverage));
+        }
+
+        public int simulateGames(int numGamesToSimulate)
+        {
+            int numGamesWonByTeam1 = 0;
+            for(int game = 0; game < numGamesToSimulate; game++)
+            {
+                int team1AB = 0;
+                int team2AB = 0;
+                int team1Score = 0;
+                int team2Score = 0;
+                int inning = 1;
+                while(inning <= 9 || team1Score== team2Score)
+                {
+
+                }
+            }
+            return numGamesWonByTeam1;
+        }
+
+        private int halfInning(Player[] players, ref int currAB)
+        {
+            int runsScored = 0;
+            int[] bases = { 0, 0, 0 };
             int numOuts = 0;
             while (numOuts < 3)
             {
-                decimal compare = (decimal)rand.NextDouble();
-                if (compare.CompareTo(log5[currBatter]) >= 0)
-                    numOuts++;
-                else
-                {
-                    int hitType = (int)(rand.NextDouble() * 10);
-                    if (hitType >= 0 && hitType <= 5)
-                    {
-                        tmInningScore += current_base[1];
-                        current_base[1] = 0;
-                        tmInningScore += current_base[2];
-                        current_base[2] = 0;
-                        if (current_base[0] == 1)
-                            current_base[2] = 1;
-                        current_base[0] = 1;
-                    }
-                    else if (hitType == 6 || hitType == 7)
-                    {
-                        tmInningScore += current_base.Sum();
-                        for (int i = 0; i <= 2; i++)
-                            current_base[i] = 0;
-                        current_base[1] = 1;
-                    }
-                    else if (hitType == 8)
-                    {
-                        tmInningScore += current_base.Sum();
-                        for (int i = 0; i <= 2; i++)
-                            current_base[i] = 0;
-                        current_base[2] = 1;
-                    }
-                    else
-                    {
-                        tmInningScore += current_base.Sum() + 1;
-                        for (int i = 0; i <= 2; i++)
-                            current_base[i] = 0;
-                    }
-                }
-                currBatter++;
-                currBatter %= 9;
+
             }
-            return tmInningScore;
+            return runsScored;
         }
     }
 }
