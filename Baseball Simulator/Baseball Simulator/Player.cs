@@ -18,11 +18,13 @@ namespace Baseball_Simulator
         public decimal double_percentage { get; set; }
         public decimal triple_percentage { get; set; }
         public decimal HR_percentage { get; set; }
+        public decimal OBP { get; set; }
         public string name { get; set;  }
         #endregion
         public Player()
         {
             InitializeComponent();
+            OBP = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)

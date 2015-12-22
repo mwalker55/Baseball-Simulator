@@ -155,5 +155,11 @@ namespace Baseball_Simulator
             team2Pitcher.ShowDialog();
             team2PitcherButton.Text = team2Pitcher.name;
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Simulator game = new Simulator(team1Players, team2Players, team1Pitcher, team2Pitcher);
+            game.writeOBP();
+        }
     }
 }
