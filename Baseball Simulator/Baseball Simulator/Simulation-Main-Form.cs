@@ -159,8 +159,9 @@ namespace Baseball_Simulator
         private void button1_Click_1(object sender, EventArgs e)
         {
             Simulator game = new Simulator(team1Players, team2Players, team1Pitcher, team2Pitcher);
-            int numGamesWonByTeam1 = game.simulateGames(10);
-            MessageBox.Show("Team 1 won " + numGamesWonByTeam1 + "% of their games!", "Results");
+            Tuple<int, int> result = game.simulateGames(50);
+            MessageBox.Show("Team 1 won " + result.Item1 + " games!  Average innings per game was " + result.Item2/50);
+            this.Close();
         }
     }
 }

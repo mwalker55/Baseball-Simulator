@@ -58,12 +58,12 @@ namespace Baseball_Simulator
             return (playerValue * pitcherValue / leagueAverage) / ((playerValue * pitcherValue / leagueAverage) + (1 - playerValue) * (1 - pitcherValue) / (1 - leagueAverage));
         }
 
-        public int simulateGames(int numGamesToSimulate)
+        public Tuple<int, int> simulateGames(int numGamesToSimulate)
         {
             int numGamesWonByTeam1 = 0;
+            int numInnings = 0;
             for(int game = 0; game < numGamesToSimulate; game++)
             {
-                Console.WriteLine("Running a game...");
                 int team1AB = 0;
                 int team2AB = 0;
                 int team1Score = 0;
@@ -75,11 +75,13 @@ namespace Baseball_Simulator
                     if (inning == 9 && team2Score > team1Score)
                         break;
                     team2Score += halfInning(team2Players, ref team2AB);
+                    inning++;
                 }
                 if (team1Score > team2Score)
                     numGamesWonByTeam1++;
+                numInnings += inning;
             }
-            return numGamesWonByTeam1;
+            return Tuple.Create(numGamesWonByTeam1, numInnings);
         }
 
         private int halfInning(Player[] players, ref int currAB)
