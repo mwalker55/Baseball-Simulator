@@ -114,6 +114,11 @@
             this.BBPerc.Name = "BBPerc";
             this.BBPerc.Size = new System.Drawing.Size(50, 20);
             this.BBPerc.TabIndex = 5;
+            this.BBPerc.Value = new decimal(new int[] {
+            155,
+            0,
+            0,
+            196608});
             // 
             // singlePerc
             // 
@@ -132,6 +137,11 @@
             this.singlePerc.Name = "singlePerc";
             this.singlePerc.Size = new System.Drawing.Size(50, 20);
             this.singlePerc.TabIndex = 6;
+            this.singlePerc.Value = new decimal(new int[] {
+            136,
+            0,
+            0,
+            196608});
             // 
             // doublePerc
             // 
@@ -150,6 +160,11 @@
             this.doublePerc.Name = "doublePerc";
             this.doublePerc.Size = new System.Drawing.Size(50, 20);
             this.doublePerc.TabIndex = 7;
+            this.doublePerc.Value = new decimal(new int[] {
+            47,
+            0,
+            0,
+            196608});
             // 
             // triplePerc
             // 
@@ -168,6 +183,11 @@
             this.triplePerc.Name = "triplePerc";
             this.triplePerc.Size = new System.Drawing.Size(50, 20);
             this.triplePerc.TabIndex = 8;
+            this.triplePerc.Value = new decimal(new int[] {
+            9,
+            0,
+            0,
+            196608});
             // 
             // HRPerc
             // 
@@ -186,6 +206,11 @@
             this.HRPerc.Name = "HRPerc";
             this.HRPerc.Size = new System.Drawing.Size(50, 20);
             this.HRPerc.TabIndex = 9;
+            this.HRPerc.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            131072});
             // 
             // name_of_player
             // 

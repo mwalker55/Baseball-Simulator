@@ -27,6 +27,18 @@ namespace Baseball_Simulator
             OBP = 0;
         }
 
+        public void makeOutOfOne()
+        {
+            if (OBP != 0)
+            {
+                walk_percentage = walk_percentage / OBP;
+                single_percentage = walk_percentage + single_percentage / OBP;
+                double_percentage = single_percentage + double_percentage / OBP;
+                triple_percentage = double_percentage + triple_percentage / OBP;
+                HR_percentage = triple_percentage + HR_percentage / OBP;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             name = name_of_player.Text;

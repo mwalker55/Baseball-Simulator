@@ -50,6 +50,7 @@ namespace Baseball_Simulator
             toBeConverted.HR_percentage = log5Function(toBeConverted.HR_percentage, pitcherFacing.HR_percentage, leagueAveragePlayer.HR_percentage);
             toBeConverted.OBP = toBeConverted.walk_percentage + toBeConverted.single_percentage + toBeConverted.double_percentage + toBeConverted.triple_percentage
                 + toBeConverted.HR_percentage;
+            toBeConverted.makeOutOfOne();
         }
 
         private decimal log5Function(decimal playerValue, decimal pitcherValue, decimal leagueAverage)
@@ -57,18 +58,12 @@ namespace Baseball_Simulator
             return (playerValue * pitcherValue / leagueAverage) / ((playerValue * pitcherValue / leagueAverage) + (1 - playerValue) * (1 - pitcherValue) / (1 - leagueAverage));
         }
 
-        public void writeOBP()
-        {
-            Console.WriteLine(team1Players[0].OBP);
-            Console.WriteLine((int)(team1Players[0].OBP * 1000));
-            Console.WriteLine(team1Players[0].walk_percentage);
-        }
-
         public int simulateGames(int numGamesToSimulate)
         {
             int numGamesWonByTeam1 = 0;
             for(int game = 0; game < numGamesToSimulate; game++)
             {
+                Console.WriteLine("Running a game...");
                 int team1AB = 0;
                 int team2AB = 0;
                 int team1Score = 0;
@@ -76,8 +71,13 @@ namespace Baseball_Simulator
                 int inning = 1;
                 while(inning <= 9 || team1Score == team2Score)
                 {
-
+                    team1Score += halfInning(team1Players, ref team1AB);
+                    if (inning == 9 && team2Score > team1Score)
+                        break;
+                    team2Score += halfInning(team2Players, ref team2AB);
                 }
+                if (team1Score > team2Score)
+                    numGamesWonByTeam1++;
             }
             return numGamesWonByTeam1;
         }
@@ -92,13 +92,51 @@ namespace Baseball_Simulator
                 if(rand.Next(1000) < players[currAB].OBP*1000)
                 {
                     int numBaseDetermination = rand.Next(1000);
-                    
+                    if (numBaseDetermination < (int)(players[currAB].walk_percentage * 1000))
+                    {
+                        if (bases.Sum() == 3)
+                        {
+                            runsScored++;
+                        }
+                        else if (bases[0] == 1)
+                        {
+                            if (bases[1] == 1)
+                                bases[2] = 1;
+                            bases[1] = 1;
+                        }
+                        bases[0] = 1;
+                    }
+                    else if (numBaseDetermination < (int)(players[currAB].single_percentage * 1000))
+                    {
+                        runsScored += (bases[1] + bases[2]);
+                        bases[1] = 0;
+                        if (bases[0] != 1)
+                            bases[2] = 0;
+                        bases[0] = 1;
+                    }
+                    else if (numBaseDetermination < (int)(players[currAB].double_percentage * 1000))
+                    {
+                        runsScored += bases.Sum();
+                        Array.Clear(bases, 0, 3);
+                        bases[1] = 1;
+                    }
+                    else if (numBaseDetermination < (int)(players[currAB].triple_percentage * 1000))
+                    {
+                        runsScored += bases.Sum();
+                        Array.Clear(bases, 0, 3);
+                        bases[2] = 1;
+                    }
+                    else
+                    {
+                        runsScored += bases.Sum() + 1;
+                        Array.Clear(bases, 0, 3);
+                    }
                 }
                 else
                 {
-                    currAB++;
                     numOuts++;
                 }
+                currAB = (currAB + 1) % 9;
             }
             return runsScored;
         }
