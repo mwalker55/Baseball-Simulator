@@ -20,11 +20,13 @@ namespace Baseball_Simulator
         public decimal HR_percentage { get; set; }
         public decimal OBP { get; set; }
         public string name { get; set;  }
+        public bool set { get; set; }
         #endregion
         public Player()
         {
             InitializeComponent();
             OBP = 0;
+            set = false;
         }
 
         public void makeOutOfOne()
@@ -53,6 +55,7 @@ namespace Baseball_Simulator
             }
             else
             {
+                set = true;
                 this.Close();
             }
         }
