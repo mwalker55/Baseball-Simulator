@@ -51,6 +51,9 @@
             this.team2Player9 = new System.Windows.Forms.Button();
             this.team1PitcherButton = new System.Windows.Forms.Button();
             this.team2PitcherButton = new System.Windows.Forms.Button();
+            this.numGamesToSimulate = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numGamesToSimulate)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -288,11 +291,44 @@
             this.team2PitcherButton.UseVisualStyleBackColor = true;
             this.team2PitcherButton.Click += new System.EventHandler(this.team2PitcherButton_Click);
             // 
+            // numGamesToSimulate
+            // 
+            this.numGamesToSimulate.Location = new System.Drawing.Point(364, 444);
+            this.numGamesToSimulate.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numGamesToSimulate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numGamesToSimulate.Name = "numGamesToSimulate";
+            this.numGamesToSimulate.Size = new System.Drawing.Size(75, 21);
+            this.numGamesToSimulate.TabIndex = 103;
+            this.numGamesToSimulate.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(303, 426);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(200, 15);
+            this.label3.TabIndex = 104;
+            this.label3.Text = "Number of Games to Simulate";
+            // 
             // Home_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 521);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.numGamesToSimulate);
             this.Controls.Add(this.team2PitcherButton);
             this.Controls.Add(this.team1PitcherButton);
             this.Controls.Add(this.team2Player9);
@@ -320,6 +356,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Home_Page";
             this.Text = "Baseball Simulator";
+            ((System.ComponentModel.ISupportInitialize)(this.numGamesToSimulate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,6 +387,8 @@
         private System.Windows.Forms.Button team2Player9;
         private System.Windows.Forms.Button team1PitcherButton;
         private System.Windows.Forms.Button team2PitcherButton;
+        private System.Windows.Forms.NumericUpDown numGamesToSimulate;
+        private System.Windows.Forms.Label label3;
     }
 }
 

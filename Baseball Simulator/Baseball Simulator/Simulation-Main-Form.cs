@@ -158,8 +158,8 @@ namespace Baseball_Simulator
                 return;
             }
             Simulator game = new Simulator(deepCopyArray(team1Players), deepCopyArray(team2Players), team1Pitcher, team2Pitcher);
-            Tuple<int, int> result = game.simulateGames(1000);
-            MessageBox.Show("Team 1 won " + result.Item1 + " games!  Average innings per game was " + result.Item2/1000);
+            Tuple<int, int> result = game.simulateGames((int)numGamesToSimulate.Value);
+            MessageBox.Show("Team 1 won " + result.Item1 + " games!  Average innings per game was " + result.Item2/(int)numGamesToSimulate.Value);
         }
 
         private Player[] deepCopyArray(Player[] toBeCopied)
