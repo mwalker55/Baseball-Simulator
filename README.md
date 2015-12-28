@@ -2,7 +2,7 @@
 ##About
 Ongoing project designed at creating a semi-realistic baseball simulator. 
 
-Currently will simulate a fixed count of 50 games.  
+Currently will simulate a fixed count of 1000 games.  
 ##Running
 To run this program, clone the repo and open the solution in Visual Studio and start it.  
 
