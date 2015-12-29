@@ -20,25 +20,13 @@ namespace Baseball_Simulator
         public decimal HR_percentage { get; set; }
         public decimal OBP { get; set; }
         public string name { get; set;  }
-        public bool set { get; set; }
+        public bool setFlag { get; set; }
         #endregion
         public Player()
         {
             InitializeComponent();
             OBP = 0;
-            set = false;
-        }
-
-        public void makeOutOfOne()
-        {
-            if (OBP != 0)
-            {
-                walk_percentage = walk_percentage / OBP;
-                single_percentage = walk_percentage + single_percentage / OBP;
-                double_percentage = single_percentage + double_percentage / OBP;
-                triple_percentage = double_percentage + triple_percentage / OBP;
-                HR_percentage = triple_percentage + HR_percentage / OBP;
-            }
+            setFlag = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,7 +43,7 @@ namespace Baseball_Simulator
             }
             else
             {
-                set = true;
+                setFlag = true;
                 this.Close();
             }
         }

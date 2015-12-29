@@ -48,9 +48,6 @@ namespace Baseball_Simulator
             toBeConverted.double_percentage = log5Function(toBeConverted.double_percentage, pitcherFacing.double_percentage, leagueAveragePlayer.double_percentage);
             toBeConverted.triple_percentage = log5Function(toBeConverted.triple_percentage, pitcherFacing.triple_percentage, leagueAveragePlayer.triple_percentage);
             toBeConverted.HR_percentage = log5Function(toBeConverted.HR_percentage, pitcherFacing.HR_percentage, leagueAveragePlayer.HR_percentage);
-            toBeConverted.OBP = toBeConverted.walk_percentage + toBeConverted.single_percentage + toBeConverted.double_percentage + toBeConverted.triple_percentage
-                + toBeConverted.HR_percentage;
-            toBeConverted.makeOutOfOne();
         }
 
         private decimal log5Function(decimal playerValue, decimal pitcherValue, decimal leagueAverage)
@@ -91,54 +88,51 @@ namespace Baseball_Simulator
             int numOuts = 0;
             while (numOuts < 3)
             {
-                if(rand.Next(1000) < players[currAB].OBP*1000)
-                {
-                    int numBaseDetermination = rand.Next(1000);
-                    if (numBaseDetermination < (int)(players[currAB].walk_percentage * 1000))
-                    {
-                        if (bases.Sum() == 3)
-                        {
-                            runsScored++;
-                        }
-                        else if (bases[0] == 1)
-                        {
-                            if (bases[1] == 1)
-                                bases[2] = 1;
-                            bases[1] = 1;
-                        }
-                        bases[0] = 1;
-                    }
-                    else if (numBaseDetermination < (int)(players[currAB].single_percentage * 1000))
-                    {
-                        runsScored += (bases[1] + bases[2]);
-                        bases[1] = 0;
-                        if (bases[0] != 1)
-                            bases[2] = 0;
-                        bases[0] = 1;
-                    }
-                    else if (numBaseDetermination < (int)(players[currAB].double_percentage * 1000))
-                    {
-                        runsScored += bases.Sum();
-                        Array.Clear(bases, 0, 3);
-                        bases[1] = 1;
-                    }
-                    else if (numBaseDetermination < (int)(players[currAB].triple_percentage * 1000))
-                    {
-                        runsScored += bases.Sum();
-                        Array.Clear(bases, 0, 3);
-                        bases[2] = 1;
-                    }
-                    else
-                    {
-                        runsScored += bases.Sum() + 1;
-                        Array.Clear(bases, 0, 3);
-                    }
-                }
-                else
-                {
-                    numOuts++;
-                }
-                currAB = (currAB + 1) % 9;
+                   int numBaseDetermination = rand.Next(1000);
+                   if (numBaseDetermination < (int)(players[currAB].walk_percentage * 1000))
+                   {
+                       if (bases.Sum() == 3)
+                       {
+                           runsScored++;
+                       }
+                       else if (bases[0] == 1)
+                       {
+                           if (bases[1] == 1)
+                               bases[2] = 1;
+                           bases[1] = 1;
+                       }
+                       bases[0] = 1;
+                   }
+                   else if (numBaseDetermination < (int)((players[currAB].single_percentage+players[currAB].walk_percentage) * 1000))
+                   {
+                       runsScored += (bases[1] + bases[2]);
+                       bases[1] = 0;
+                       if (bases[0] != 1)
+                           bases[2] = 0;
+                       bases[0] = 1;
+                   }
+                   else if (numBaseDetermination < (int)((players[currAB].double_percentage+players[currAB].single_percentage+players[currAB].walk_percentage) * 1000))
+                   {
+                       runsScored += bases.Sum();
+                       Array.Clear(bases, 0, 3);
+                       bases[1] = 1;
+                   }
+                   else if (numBaseDetermination < (int)((players[currAB].triple_percentage+players[currAB].double_percentage + players[currAB].single_percentage + players[currAB].walk_percentage) * 1000))
+                   {
+                       runsScored += bases.Sum();
+                       Array.Clear(bases, 0, 3);
+                       bases[2] = 1;
+                   }
+                   else if (numBaseDetermination < (int)(players[currAB].HR_percentage+ players[currAB].double_percentage + players[currAB].single_percentage + players[currAB].walk_percentage+players[currAB].triple_percentage))
+                   {
+                       runsScored += bases.Sum() + 1;
+                       Array.Clear(bases, 0, 3);
+                   }
+                   else
+                   {
+                       numOuts++;
+                   }
+                   currAB = (currAB + 1) % 9;
             }
             return runsScored;
         }

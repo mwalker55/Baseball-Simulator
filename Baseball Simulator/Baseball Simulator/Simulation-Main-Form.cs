@@ -179,11 +179,11 @@ namespace Baseball_Simulator
         }
         private bool checkIfAllPlayersSet()
         {
-            if (!team1Pitcher.set || !team2Pitcher.set)
+            if (!team1Pitcher.setFlag || !team2Pitcher.setFlag)
                 return false;
             for(int i = 0; i < team1Players.Length; i++)
             {
-                if (!team1Players[i].set || !team2Players[i].set)
+                if (!team1Players[i].setFlag || !team2Players[i].setFlag)
                     return false;
             }
             return true;
