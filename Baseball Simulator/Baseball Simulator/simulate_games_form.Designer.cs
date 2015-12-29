@@ -53,6 +53,7 @@
             this.team2PitcherButton = new System.Windows.Forms.Button();
             this.numGamesToSimulate = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.home_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numGamesToSimulate)).BeginInit();
             this.SuspendLayout();
             // 
@@ -322,11 +323,23 @@
             this.label3.TabIndex = 104;
             this.label3.Text = "Number of Games to Simulate";
             // 
+            // home_button
+            // 
+            this.home_button.Location = new System.Drawing.Point(599, 471);
+            this.home_button.Name = "home_button";
+            this.home_button.Size = new System.Drawing.Size(75, 23);
+            this.home_button.TabIndex = 105;
+            this.home_button.Text = "Home";
+            this.home_button.UseVisualStyleBackColor = true;
+            this.home_button.Click += new System.EventHandler(this.home_button_Click);
+            // 
             // Home_Page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(805, 521);
+            this.ControlBox = false;
+            this.Controls.Add(this.home_button);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numGamesToSimulate);
             this.Controls.Add(this.team2PitcherButton);
@@ -355,7 +368,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Home_Page";
-            this.Text = "Baseball Simulator";
+            this.Text = "Simulate Games";
             ((System.ComponentModel.ISupportInitialize)(this.numGamesToSimulate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -389,6 +402,7 @@
         private System.Windows.Forms.Button team2PitcherButton;
         private System.Windows.Forms.NumericUpDown numGamesToSimulate;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button home_button;
     }
 }
 

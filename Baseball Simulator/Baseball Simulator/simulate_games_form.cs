@@ -16,13 +16,15 @@ namespace Baseball_Simulator
         private Player[] team2Players;
         private Player team1Pitcher;
         private Player team2Pitcher;
-        public Home_Page()
+        private Form homePage;
+        public Home_Page(Form HomePage)
         {
             InitializeComponent();
             team1Pitcher = new Player();
             team2Pitcher = new Player();
             team1Players = new Player[9];
             team2Players = new Player[9];
+            homePage = HomePage;
             for (int i = 0; i < 9; i++)
             {
                 team1Players[i] = new Player();
@@ -187,6 +189,12 @@ namespace Baseball_Simulator
                     return false;
             }
             return true;
+        }
+
+        private void home_button_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            homePage.Visible = true;
         }
     }
 }

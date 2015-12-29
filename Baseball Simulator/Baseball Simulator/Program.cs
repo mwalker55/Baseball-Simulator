@@ -16,7 +16,7 @@ namespace Baseball_Simulator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Home_Page());
+            Application.Run(new main_page());
         }
     }
 }
