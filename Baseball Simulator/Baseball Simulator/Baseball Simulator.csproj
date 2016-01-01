@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="League.cs" />
     <Compile Include="main-page.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +68,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simulator.cs" />
+    <Compile Include="Team.cs" />
     <EmbeddedResource Include="main-page.resx">
       <DependentUpon>main-page.cs</DependentUpon>
     </EmbeddedResource>
