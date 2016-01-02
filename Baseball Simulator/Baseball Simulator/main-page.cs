@@ -26,7 +26,7 @@ namespace Baseball_Simulator
         private void simulate_games_button_Click(object sender, EventArgs e)
         {
             if(games_simulator == null)
-                games_simulator = new Home_Page(this);
+                games_simulator = new simulate_page(this);
             games_simulator.Visible = true;
             this.Visible = false;
         }

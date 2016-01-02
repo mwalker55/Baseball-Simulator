@@ -7,5 +7,5 @@ C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Si
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball Simulator.exe
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball Simulator.pdb
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.Player.resources
-C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.Home_Page.resources
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.main_page.resources
+C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.simulate_page.resources

@@ -74,6 +74,9 @@ namespace Baseball_Simulator
             this.Controls.Add(this.title);
             this.Controls.Add(this.simulate_games_button);
             this.Controls.Add(this.exit_button);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "main_page";
             this.Text = "Mark\'s Baseball Simulator 2016";
             this.ResumeLayout(false);

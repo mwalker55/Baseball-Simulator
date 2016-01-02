@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Baseball_Simulator
 {
-    public partial class Home_Page : Form
+    public partial class simulate_page : Form
     {
         private Player[] team1Players;
         private Player[] team2Players;
         private Player team1Pitcher;
         private Player team2Pitcher;
         private Form homePage;
-        public Home_Page(Form HomePage)
+        public simulate_page(Form HomePage)
         {
             InitializeComponent();
             team1Pitcher = new Player();

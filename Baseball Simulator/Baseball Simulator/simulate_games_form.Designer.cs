@@ -1,6 +1,6 @@
 ﻿namespace Baseball_Simulator
 {
-    partial class Home_Page
+    partial class simulate_page
     {
         /// <summary>
         /// Required designer variable.
@@ -333,7 +333,7 @@
             this.home_button.UseVisualStyleBackColor = true;
             this.home_button.Click += new System.EventHandler(this.home_button_Click);
             // 
-            // Home_Page
+            // simulate_page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -366,8 +366,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Home_Page";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "simulate_page";
             this.Text = "Simulate Games";
             ((System.ComponentModel.ISupportInitialize)(this.numGamesToSimulate)).EndInit();
             this.ResumeLayout(false);
