@@ -6,24 +6,16 @@ using System.Threading.Tasks;
 
 namespace Baseball_Simulator
 {
-    class Team
+    public class Team
     {
-        private Player[] playerList;
+        public Player[] playerList { get; set; }
         public Player startingPitcher { get; set; }
         public Team()
         {
             playerList = new Player[9];
+            for (int i = 0; i < 9; i++)
+                playerList[i] = new Player();
             startingPitcher = new Player();
-        }
-
-        public void addPlayerToRoster(Player toBeAdded, int lineUpPosition)
-        {
-            playerList[lineUpPosition - 1] = toBeAdded;
-        }
-
-        public Player getPlayerAtLineupPosition(int lineUpPosition)
-        {
-            return playerList[lineUpPosition - 1];
         }
     }
 }
