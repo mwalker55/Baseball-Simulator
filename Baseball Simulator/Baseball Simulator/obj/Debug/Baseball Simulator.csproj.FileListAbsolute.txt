@@ -10,3 +10,5 @@ C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Si
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.main_page.resources
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.simulate_page.resources
 C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\obj\Debug\Baseball_Simulator.teamMakerForm.resources
+C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\bin\Debug\league-database.mdf
+C:\Users\Mark\Documents\GitHub\Baseball-Simulator\Baseball Simulator\Baseball Simulator\bin\Debug\league-database_log.ldf

@@ -36,6 +36,8 @@
             this.home_button = new System.Windows.Forms.Button();
             this.createAwayTeam = new System.Windows.Forms.Button();
             this.createHomeTeam = new System.Windows.Forms.Button();
+            this.awayTeamClearButton = new System.Windows.Forms.Button();
+            this.homeTeamClearButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numGamesToSimulate)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +46,7 @@
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 37);
+            this.label1.Location = new System.Drawing.Point(25, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 41);
@@ -56,7 +58,7 @@
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(477, 37);
+            this.label2.Location = new System.Drawing.Point(473, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 41);
@@ -116,7 +118,7 @@
             // 
             // createAwayTeam
             // 
-            this.createAwayTeam.Location = new System.Drawing.Point(12, 81);
+            this.createAwayTeam.Location = new System.Drawing.Point(12, 53);
             this.createAwayTeam.Name = "createAwayTeam";
             this.createAwayTeam.Size = new System.Drawing.Size(140, 23);
             this.createAwayTeam.TabIndex = 106;
@@ -126,7 +128,7 @@
             // 
             // createHomeTeam
             // 
-            this.createHomeTeam.Location = new System.Drawing.Point(463, 81);
+            this.createHomeTeam.Location = new System.Drawing.Point(460, 53);
             this.createHomeTeam.Name = "createHomeTeam";
             this.createHomeTeam.Size = new System.Drawing.Size(140, 23);
             this.createHomeTeam.TabIndex = 107;
@@ -134,12 +136,34 @@
             this.createHomeTeam.UseVisualStyleBackColor = true;
             this.createHomeTeam.Click += new System.EventHandler(this.createHomeTeam_Click);
             // 
+            // awayTeamClearButton
+            // 
+            this.awayTeamClearButton.Location = new System.Drawing.Point(12, 82);
+            this.awayTeamClearButton.Name = "awayTeamClearButton";
+            this.awayTeamClearButton.Size = new System.Drawing.Size(140, 23);
+            this.awayTeamClearButton.TabIndex = 108;
+            this.awayTeamClearButton.Text = "Clear Team";
+            this.awayTeamClearButton.UseVisualStyleBackColor = true;
+            this.awayTeamClearButton.Click += new System.EventHandler(this.awayTeamClearButton_Click);
+            // 
+            // homeTeamClearButton
+            // 
+            this.homeTeamClearButton.Location = new System.Drawing.Point(460, 82);
+            this.homeTeamClearButton.Name = "homeTeamClearButton";
+            this.homeTeamClearButton.Size = new System.Drawing.Size(140, 23);
+            this.homeTeamClearButton.TabIndex = 109;
+            this.homeTeamClearButton.Text = "Clear Team";
+            this.homeTeamClearButton.UseVisualStyleBackColor = true;
+            this.homeTeamClearButton.Click += new System.EventHandler(this.homeTeamClearButton_Click);
+            // 
             // simulate_page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 197);
             this.ControlBox = false;
+            this.Controls.Add(this.homeTeamClearButton);
+            this.Controls.Add(this.awayTeamClearButton);
             this.Controls.Add(this.createHomeTeam);
             this.Controls.Add(this.createAwayTeam);
             this.Controls.Add(this.home_button);
@@ -171,6 +195,8 @@
         private System.Windows.Forms.Button home_button;
         private System.Windows.Forms.Button createAwayTeam;
         private System.Windows.Forms.Button createHomeTeam;
+        private System.Windows.Forms.Button awayTeamClearButton;
+        private System.Windows.Forms.Button homeTeamClearButton;
     }
 }
 

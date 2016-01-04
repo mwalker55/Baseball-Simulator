@@ -59,11 +59,29 @@ namespace Baseball_Simulator
         private void createHomeTeam_Click(object sender, EventArgs e)
         {
             homeTeam.ShowDialog();
+            if (homeTeam.teamSet)
+                createHomeTeam.Text = "Edit Team";
+        }
+
+        private void homeTeamClearButton_Click(object sender, EventArgs e)
+        {
+            teamMakerForm temp = homeTeam;
+            homeTeam = new teamMakerForm();
+            createHomeTeam.Text = "Create Team";
+        }
+
+        private void awayTeamClearButton_Click(object sender, EventArgs e)
+        {
+            teamMakerForm temp = awayTeam;
+            awayTeam = new teamMakerForm();
+            createAwayTeam.Text = "Create Team";
         }
 
         private void createAwayTeam_Click(object sender, EventArgs e)
         {
             awayTeam.ShowDialog();
+            if (awayTeam.teamSet)
+                createAwayTeam.Text = "Edit Team";
         }
     }
 }
