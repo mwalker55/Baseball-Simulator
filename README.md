@@ -1,4 +1,4 @@
-# Baseball-Simulator
+# Mark's Baseball Simulator
 ##About
 Ongoing project designed at creating a semi-realistic baseball simulator. 
 
