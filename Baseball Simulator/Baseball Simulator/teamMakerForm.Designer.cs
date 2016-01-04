@@ -168,6 +168,8 @@
             this.Controls.Add(this.player3Button);
             this.Controls.Add(this.player2Button);
             this.Controls.Add(this.player1Button);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "teamMakerForm";
             this.Text = "Team Designer";
             this.ResumeLayout(false);

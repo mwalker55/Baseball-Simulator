@@ -44,7 +44,7 @@
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(139, 37);
+            this.label1.Location = new System.Drawing.Point(31, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 41);
@@ -56,7 +56,7 @@
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(545, 37);
+            this.label2.Location = new System.Drawing.Point(477, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 41);
@@ -65,7 +65,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(364, 166);
+            this.button1.Location = new System.Drawing.Point(267, 166);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 46;
@@ -75,7 +75,7 @@
             // 
             // numGamesToSimulate
             // 
-            this.numGamesToSimulate.Location = new System.Drawing.Point(364, 139);
+            this.numGamesToSimulate.Location = new System.Drawing.Point(267, 139);
             this.numGamesToSimulate.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -98,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(295, 112);
+            this.label3.Location = new System.Drawing.Point(210, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(200, 15);
             this.label3.TabIndex = 104;
@@ -106,7 +106,7 @@
             // 
             // home_button
             // 
-            this.home_button.Location = new System.Drawing.Point(599, 200);
+            this.home_button.Location = new System.Drawing.Point(528, 166);
             this.home_button.Name = "home_button";
             this.home_button.Size = new System.Drawing.Size(75, 23);
             this.home_button.TabIndex = 105;
@@ -116,7 +116,7 @@
             // 
             // createAwayTeam
             // 
-            this.createAwayTeam.Location = new System.Drawing.Point(123, 81);
+            this.createAwayTeam.Location = new System.Drawing.Point(12, 81);
             this.createAwayTeam.Name = "createAwayTeam";
             this.createAwayTeam.Size = new System.Drawing.Size(140, 23);
             this.createAwayTeam.TabIndex = 106;
@@ -126,7 +126,7 @@
             // 
             // createHomeTeam
             // 
-            this.createHomeTeam.Location = new System.Drawing.Point(534, 81);
+            this.createHomeTeam.Location = new System.Drawing.Point(463, 81);
             this.createHomeTeam.Name = "createHomeTeam";
             this.createHomeTeam.Size = new System.Drawing.Size(140, 23);
             this.createHomeTeam.TabIndex = 107;
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 242);
+            this.ClientSize = new System.Drawing.Size(612, 197);
             this.ControlBox = false;
             this.Controls.Add(this.createHomeTeam);
             this.Controls.Add(this.createAwayTeam);
