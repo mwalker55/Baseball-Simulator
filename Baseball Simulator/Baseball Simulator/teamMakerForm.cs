@@ -98,6 +98,7 @@ namespace Baseball_Simulator
             }
             MessageBox.Show("Team successfully set!", "Complete");
             teamSet = true;
+            myTeam.teamName = teamNameTextBox.Text;
             this.Close();
         }
     }

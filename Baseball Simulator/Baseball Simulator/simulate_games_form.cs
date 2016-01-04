@@ -60,7 +60,7 @@ namespace Baseball_Simulator
         {
             homeTeam.ShowDialog();
             if (homeTeam.teamSet)
-                createHomeTeam.Text = "Edit Team";
+                createHomeTeam.Text = "Edit " + homeTeam.myTeam.teamName;
         }
 
         private void homeTeamClearButton_Click(object sender, EventArgs e)
@@ -81,7 +81,7 @@ namespace Baseball_Simulator
         {
             awayTeam.ShowDialog();
             if (awayTeam.teamSet)
-                createAwayTeam.Text = "Edit Team";
+                createAwayTeam.Text = "Edit " + awayTeam.myTeam.teamName;
         }
     }
 }

@@ -39,11 +39,12 @@
             this.player2Button = new System.Windows.Forms.Button();
             this.player1Button = new System.Windows.Forms.Button();
             this.setTeamButton = new System.Windows.Forms.Button();
+            this.teamNameTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // pitcherButton
             // 
-            this.pitcherButton.Location = new System.Drawing.Point(74, 276);
+            this.pitcherButton.Location = new System.Drawing.Point(74, 299);
             this.pitcherButton.Name = "pitcherButton";
             this.pitcherButton.Size = new System.Drawing.Size(132, 23);
             this.pitcherButton.TabIndex = 111;
@@ -54,7 +55,7 @@
             // 
             // player9Button
             // 
-            this.player9Button.Location = new System.Drawing.Point(74, 247);
+            this.player9Button.Location = new System.Drawing.Point(74, 270);
             this.player9Button.Name = "player9Button";
             this.player9Button.Size = new System.Drawing.Size(132, 23);
             this.player9Button.TabIndex = 110;
@@ -64,7 +65,7 @@
             // 
             // player8Button
             // 
-            this.player8Button.Location = new System.Drawing.Point(74, 218);
+            this.player8Button.Location = new System.Drawing.Point(74, 241);
             this.player8Button.Name = "player8Button";
             this.player8Button.Size = new System.Drawing.Size(132, 23);
             this.player8Button.TabIndex = 109;
@@ -74,7 +75,7 @@
             // 
             // player7Button
             // 
-            this.player7Button.Location = new System.Drawing.Point(74, 189);
+            this.player7Button.Location = new System.Drawing.Point(74, 212);
             this.player7Button.Name = "player7Button";
             this.player7Button.Size = new System.Drawing.Size(132, 23);
             this.player7Button.TabIndex = 108;
@@ -84,7 +85,7 @@
             // 
             // player6Button
             // 
-            this.player6Button.Location = new System.Drawing.Point(74, 160);
+            this.player6Button.Location = new System.Drawing.Point(74, 183);
             this.player6Button.Name = "player6Button";
             this.player6Button.Size = new System.Drawing.Size(132, 23);
             this.player6Button.TabIndex = 107;
@@ -94,7 +95,7 @@
             // 
             // player5Button
             // 
-            this.player5Button.Location = new System.Drawing.Point(74, 131);
+            this.player5Button.Location = new System.Drawing.Point(74, 154);
             this.player5Button.Name = "player5Button";
             this.player5Button.Size = new System.Drawing.Size(132, 23);
             this.player5Button.TabIndex = 106;
@@ -104,7 +105,7 @@
             // 
             // player4Button
             // 
-            this.player4Button.Location = new System.Drawing.Point(74, 102);
+            this.player4Button.Location = new System.Drawing.Point(74, 125);
             this.player4Button.Name = "player4Button";
             this.player4Button.Size = new System.Drawing.Size(132, 23);
             this.player4Button.TabIndex = 105;
@@ -114,7 +115,7 @@
             // 
             // player3Button
             // 
-            this.player3Button.Location = new System.Drawing.Point(74, 73);
+            this.player3Button.Location = new System.Drawing.Point(74, 96);
             this.player3Button.Name = "player3Button";
             this.player3Button.Size = new System.Drawing.Size(132, 23);
             this.player3Button.TabIndex = 104;
@@ -124,7 +125,7 @@
             // 
             // player2Button
             // 
-            this.player2Button.Location = new System.Drawing.Point(74, 44);
+            this.player2Button.Location = new System.Drawing.Point(74, 67);
             this.player2Button.Name = "player2Button";
             this.player2Button.Size = new System.Drawing.Size(132, 23);
             this.player2Button.TabIndex = 103;
@@ -134,7 +135,7 @@
             // 
             // player1Button
             // 
-            this.player1Button.Location = new System.Drawing.Point(74, 15);
+            this.player1Button.Location = new System.Drawing.Point(74, 38);
             this.player1Button.Name = "player1Button";
             this.player1Button.Size = new System.Drawing.Size(132, 23);
             this.player1Button.TabIndex = 102;
@@ -144,7 +145,7 @@
             // 
             // setTeamButton
             // 
-            this.setTeamButton.Location = new System.Drawing.Point(74, 314);
+            this.setTeamButton.Location = new System.Drawing.Point(74, 341);
             this.setTeamButton.Name = "setTeamButton";
             this.setTeamButton.Size = new System.Drawing.Size(132, 23);
             this.setTeamButton.TabIndex = 112;
@@ -152,11 +153,22 @@
             this.setTeamButton.UseVisualStyleBackColor = true;
             this.setTeamButton.Click += new System.EventHandler(this.setTeamButton_Click);
             // 
+            // teamNameTextBox
+            // 
+            this.teamNameTextBox.Location = new System.Drawing.Point(31, 12);
+            this.teamNameTextBox.MaxLength = 50;
+            this.teamNameTextBox.Name = "teamNameTextBox";
+            this.teamNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.teamNameTextBox.Size = new System.Drawing.Size(222, 20);
+            this.teamNameTextBox.TabIndex = 113;
+            this.teamNameTextBox.Text = "Team Name";
+            // 
             // teamMakerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 359);
+            this.ClientSize = new System.Drawing.Size(284, 376);
+            this.Controls.Add(this.teamNameTextBox);
             this.Controls.Add(this.setTeamButton);
             this.Controls.Add(this.pitcherButton);
             this.Controls.Add(this.player9Button);
@@ -173,6 +185,7 @@
             this.Name = "teamMakerForm";
             this.Text = "Team Designer";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -189,5 +202,6 @@
         private System.Windows.Forms.Button player2Button;
         private System.Windows.Forms.Button player1Button;
         private System.Windows.Forms.Button setTeamButton;
+        private System.Windows.Forms.TextBox teamNameTextBox;
     }
 }

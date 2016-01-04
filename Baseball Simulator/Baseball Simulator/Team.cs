@@ -10,12 +10,14 @@ namespace Baseball_Simulator
     {
         public Player[] playerList { get; set; }
         public Player startingPitcher { get; set; }
+        public string teamName { get; set; }
         public Team()
         {
             playerList = new Player[9];
             for (int i = 0; i < 9; i++)
                 playerList[i] = new Player();
             startingPitcher = new Player();
+            teamName = "";
         }
     }
 }
