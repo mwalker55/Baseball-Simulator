@@ -23,11 +23,16 @@ namespace Baseball_Simulator
             Environment.Exit(1);
         }
 
+
+        // open up Simulate Games form
         private void simulate_games_button_Click(object sender, EventArgs e)
         {
+            // if a Simulate Games form does not already exist, make a new one
             if(games_simulator == null)
                 games_simulator = new simulate_page(this);
+            // make the Simulate Games form visible
             games_simulator.Visible = true;
+            // Hide the main menu rather than delete it - makes it faster to return to
             this.Visible = false;
         }
     }

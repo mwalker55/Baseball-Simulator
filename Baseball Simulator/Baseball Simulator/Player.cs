@@ -8,10 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//TODO: SEPARATE THE ACTUAL PLAYER CLASS FROM THIS FORM
+
 namespace Baseball_Simulator
 {
     public partial class Player : Form
     {
+        // Various statistics for player
         #region Declarations
         public decimal walk_percentage { get; set; }
         public decimal single_percentage { get; set; }
@@ -20,6 +23,7 @@ namespace Baseball_Simulator
         public decimal HR_percentage { get; set; }
         public decimal OBP { get; set; }
         public string name { get; set;  }
+        // USED TO INDICATE IF PLAYER'S VALUES ARE INITIALIZED OR NOT FOR CHECK
         public bool setFlag { get; set; }
         #endregion
         public Player()

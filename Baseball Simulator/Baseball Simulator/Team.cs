@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// MODEL FOR A BASEBALL TEAM TO BE USED IN SIMULATION
+// VALUES SET IN teamMakerForm
+
 namespace Baseball_Simulator
 {
     public class Team

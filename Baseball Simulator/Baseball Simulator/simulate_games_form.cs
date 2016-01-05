@@ -13,27 +13,33 @@ namespace Baseball_Simulator
     public partial class simulate_page : Form
     {
         private Form homePage;
-        private teamMakerForm awayTeam, homeTeam;
+        private teamMakerForm awayTeamForm, homeTeamForm;
+        private Team awayTeam, homeTeam;
         public simulate_page(Form HomePage)
         {
-            awayTeam = new teamMakerForm();
-            homeTeam = new teamMakerForm();
+            awayTeamForm = new teamMakerForm();
+            homeTeamForm = new teamMakerForm();
+            awayTeam = null;
+            homeTeam = null;
             homePage = HomePage;
             InitializeComponent();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if(!awayTeam.teamSet || !homeTeam.teamSet)
+            if(awayTeam == null || homeTeam == null)
             {
                 MessageBox.Show("One of the teams has not been set!", "Error");
                 return;
             }
-            Simulator game = new Simulator(deepCopyArray(awayTeam.myTeam.playerList), deepCopyArray(homeTeam.myTeam.playerList), awayTeam.myTeam.startingPitcher, homeTeam.myTeam.startingPitcher);
+            Simulator game = new Simulator(deepCopyArray(awayTeam.playerList), deepCopyArray(homeTeam.playerList), awayTeam.startingPitcher, homeTeam.startingPitcher);
             Tuple<int, int> result = game.simulateGames((int)numGamesToSimulate.Value);
             MessageBox.Show("Away team won " + result.Item1 + " games!  Average innings per game was " + result.Item2/(int)numGamesToSimulate.Value);
         }
 
+        // TODO: MOVE THIS INTO SIMULATOR CLASS
+        // PURPOSE: PLAYER ARRAYS ARE MODIFIED IN SIMULATOR CLASS; C# BY DEFAULT SHALLOW COPIES, MEANING POINTER IS IN EFFECT PASSED
+        // THEREFORE, EDITS WITHIN SIMULATOR CLASS AFFECT ORIGINAL ARRAY, CAUSING REPEAT-USE ISSUES
         private Player[] deepCopyArray(Player[] toBeCopied)
         {
             Player[] clonedArray = new Player[toBeCopied.Length];
@@ -58,30 +64,34 @@ namespace Baseball_Simulator
 
         private void createHomeTeam_Click(object sender, EventArgs e)
         {
-            homeTeam.ShowDialog();
-            if (homeTeam.teamSet)
-                createHomeTeam.Text = "Edit " + homeTeam.myTeam.teamName;
+            homeTeamForm.ShowDialog();
+            homeTeam = homeTeamForm.getTeam();
+            if (homeTeam != null)
+                createHomeTeam.Text = "Edit " + homeTeam.teamName;
         }
 
         private void homeTeamClearButton_Click(object sender, EventArgs e)
         {
-            teamMakerForm temp = homeTeam;
-            homeTeam = new teamMakerForm();
+            teamMakerForm temp = homeTeamForm;
+            homeTeamForm = new teamMakerForm();
             createHomeTeam.Text = "Create Team";
+            homeTeam = null;
         }
 
         private void awayTeamClearButton_Click(object sender, EventArgs e)
         {
-            teamMakerForm temp = awayTeam;
-            awayTeam = new teamMakerForm();
+            teamMakerForm temp = awayTeamForm;
+            awayTeamForm = new teamMakerForm();
             createAwayTeam.Text = "Create Team";
+            awayTeam = null;
         }
 
         private void createAwayTeam_Click(object sender, EventArgs e)
         {
-            awayTeam.ShowDialog();
-            if (awayTeam.teamSet)
-                createAwayTeam.Text = "Edit " + awayTeam.myTeam.teamName;
+            awayTeamForm.ShowDialog();
+            awayTeam = awayTeamForm.getTeam();
+            if (awayTeam != null)
+                createAwayTeam.Text = "Edit " + awayTeam.teamName;
         }
     }
 }

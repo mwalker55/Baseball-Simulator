@@ -12,13 +12,20 @@ namespace Baseball_Simulator
 {
     public partial class teamMakerForm : Form
     {
-        public Team myTeam { get; }
+        private Team myTeam;
         public bool teamSet;
         public teamMakerForm()
         {
             InitializeComponent();
             myTeam = new Team();
             teamSet = false;
+        }
+
+        public Team getTeam()
+        {
+            if(teamSet)
+                return myTeam;
+            return null;
         }
 
         private void player1Button_Click(object sender, EventArgs e)
