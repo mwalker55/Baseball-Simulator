@@ -32,28 +32,9 @@ namespace Baseball_Simulator
                 MessageBox.Show("One of the teams has not been set!", "Error");
                 return;
             }
-            Simulator game = new Simulator(deepCopyArray(awayTeam.playerList), deepCopyArray(homeTeam.playerList), awayTeam.startingPitcher, homeTeam.startingPitcher);
+            Simulator game = new Simulator(awayTeam.playerList, homeTeam.playerList, awayTeam.startingPitcher, homeTeam.startingPitcher);
             Tuple<int, int> result = game.simulateGames((int)numGamesToSimulate.Value);
             MessageBox.Show("Away team won " + result.Item1 + " games!  Average innings per game was " + result.Item2/(int)numGamesToSimulate.Value);
-        }
-
-        // TODO: MOVE THIS INTO SIMULATOR CLASS
-        // PURPOSE: PLAYER ARRAYS ARE MODIFIED IN SIMULATOR CLASS; C# BY DEFAULT SHALLOW COPIES, MEANING POINTER IS IN EFFECT PASSED
-        // THEREFORE, EDITS WITHIN SIMULATOR CLASS AFFECT ORIGINAL ARRAY, CAUSING REPEAT-USE ISSUES
-        private Player[] deepCopyArray(Player[] toBeCopied)
-        {
-            Player[] clonedArray = new Player[toBeCopied.Length];
-            for(int i = 0; i < toBeCopied.Length; i++)
-            {
-                clonedArray[i] = new Player();
-                clonedArray[i].name = toBeCopied[i].name;
-                clonedArray[i].walk_percentage = toBeCopied[i].walk_percentage;
-                clonedArray[i].single_percentage = toBeCopied[i].single_percentage;
-                clonedArray[i].double_percentage = toBeCopied[i].double_percentage;
-                clonedArray[i].triple_percentage = toBeCopied[i].triple_percentage;
-                clonedArray[i].HR_percentage = toBeCopied[i].HR_percentage;
-            }
-            return clonedArray;
         }
 
         private void home_button_Click(object sender, EventArgs e)

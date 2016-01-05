@@ -14,14 +14,32 @@ namespace Baseball_Simulator
         private Random rand;
         public Simulator(Player[] Team1Players, Player[] Team2Players, Player Team1Pitcher, Player Team2Pitcher)
         {
-            team1Players = Team1Players;
-            team2Players = Team2Players;
+            team1Players = deepCopyArray(Team1Players);
+            team2Players = deepCopyArray(Team2Players);
             team1Pitcher = Team1Pitcher;
             team2Pitcher = Team2Pitcher;
             leagueAveragePlayer = new Player();
             computeLeagueAverage();
             normalizeTeamStats();
             rand = new Random();
+        }
+        
+        // This is necessary as the Player objects are modified within this class and C# only makes a "shallow copy" when object is passed
+        // This means that the changes made on the Player objects would also modify the ones made back in simulate_games_form
+        private Player[] deepCopyArray(Player[] toBeCopied)
+        {
+            Player[] clonedArray = new Player[toBeCopied.Length];
+            for (int i = 0; i < toBeCopied.Length; i++)
+            {
+                clonedArray[i] = new Player();
+                clonedArray[i].name = toBeCopied[i].name;
+                clonedArray[i].walk_percentage = toBeCopied[i].walk_percentage;
+                clonedArray[i].single_percentage = toBeCopied[i].single_percentage;
+                clonedArray[i].double_percentage = toBeCopied[i].double_percentage;
+                clonedArray[i].triple_percentage = toBeCopied[i].triple_percentage;
+                clonedArray[i].HR_percentage = toBeCopied[i].HR_percentage;
+            }
+            return clonedArray;
         }
 
         private void computeLeagueAverage()
