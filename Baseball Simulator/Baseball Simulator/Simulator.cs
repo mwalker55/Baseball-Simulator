@@ -10,17 +10,24 @@ namespace Baseball_Simulator
     {
         private Player[] team1Players;
         private Player[] team2Players;
-        private Player team1Pitcher, team2Pitcher, leagueAveragePlayer;
+        private Player[] team1PlayersVCloser;
+        private Player[] team2PlayersVCloser;
+        private Player team1Pitcher, team2Pitcher, team1Closer, team2Closer, leagueAveragePlayer;
         private Random rand;
-        public Simulator(Player[] Team1Players, Player[] Team2Players, Player Team1Pitcher, Player Team2Pitcher)
+        public Simulator(Player[] Team1Players, Player[] Team2Players, Player Team1Pitcher, Player Team2Pitcher, Player Team1Closer, Player Team2Closer)
         {
             team1Players = deepCopyArray(Team1Players);
             team2Players = deepCopyArray(Team2Players);
+            team1PlayersVCloser = deepCopyArray(Team1Players);
+            team2PlayersVCloser = deepCopyArray(Team2Players);
             team1Pitcher = Team1Pitcher;
             team2Pitcher = Team2Pitcher;
+            team1Closer = Team1Closer;
+            team2Closer = Team2Closer;
             leagueAveragePlayer = new Player();
             computeLeagueAverage();
-            normalizeTeamStats();
+            normalizeTeamStats(ref team1Players, ref team2Players, team1Pitcher, team2Pitcher);
+            normalizeTeamStats(ref team1PlayersVCloser, ref team2PlayersVCloser, team1Closer, team2Closer);
             rand = new Random();
         }
         
@@ -50,12 +57,12 @@ namespace Baseball_Simulator
             leagueAveragePlayer.triple_percentage = (team1Players.Average(item => item.triple_percentage) + team2Players.Average(item => item.triple_percentage)) / 2;
             leagueAveragePlayer.HR_percentage = (team1Players.Average(item => item.HR_percentage) + team2Players.Average(item => item.HR_percentage)) / 2;
         }
-        private void normalizeTeamStats()
+        private void normalizeTeamStats(ref Player[] Team1, ref Player[] Team2, Player Team1Pitcher, Player Team2Pitcher)
         {
-            for(int i = 0; i < team1Players.Length; i++)
+            for(int i = 0; i < Team1.Length; i++)
             {
-                convertToLog5(ref team1Players[i], team2Pitcher);
-                convertToLog5(ref team2Players[i], team1Pitcher);
+                convertToLog5(ref Team1[i], Team2Pitcher);
+                convertToLog5(ref Team2[i], Team1Pitcher);
             }
         }
 
@@ -86,10 +93,16 @@ namespace Baseball_Simulator
                 int inning = 1;
                 while(inning <= 9 || team1Score == team2Score)
                 {
-                    team1Score += halfInning(team1Players, ref team1AB);
+                    if (team1Score < 4)
+                        team1Score += halfInning(team1Players, ref team1AB);
+                    else
+                        team1Score += halfInning(team1PlayersVCloser, ref team1AB);
                     if (inning == 9 && team2Score > team1Score)
                         break;
-                    team2Score += halfInning(team2Players, ref team2AB);
+                    if (team2Score < 4)
+                        team2Score += halfInning(team2Players, ref team2AB);
+                    else
+                        team2Score += halfInning(team2PlayersVCloser, ref team2AB);
                     inning++;
                 }
                 if (team1Score > team2Score)

@@ -32,7 +32,7 @@ namespace Baseball_Simulator
                 MessageBox.Show("One of the teams has not been set!", "Error");
                 return;
             }
-            Simulator game = new Simulator(awayTeam.playerList, homeTeam.playerList, awayTeam.startingPitcher, homeTeam.startingPitcher);
+            Simulator game = new Simulator(awayTeam.playerList, homeTeam.playerList, awayTeam.startingPitcher, homeTeam.startingPitcher, awayTeam.closer, homeTeam.closer);
             Tuple<int, int> result = game.simulateGames((int)numGamesToSimulate.Value);
             MessageBox.Show("Away team won " + result.Item1 + " games!  Average innings per game was " + result.Item2/(int)numGamesToSimulate.Value);
         }

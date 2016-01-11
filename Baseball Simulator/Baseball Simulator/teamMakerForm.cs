@@ -108,5 +108,11 @@ namespace Baseball_Simulator
             myTeam.teamName = teamNameTextBox.Text;
             this.Close();
         }
+
+        private void closerButton_Click(object sender, EventArgs e)
+        {
+            myTeam.closer.ShowDialog();
+            closerButton.Text = myTeam.closer.name;
+        }
     }
 }

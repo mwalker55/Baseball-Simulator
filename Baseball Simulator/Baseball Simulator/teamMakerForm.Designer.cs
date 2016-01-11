@@ -40,6 +40,7 @@
             this.player1Button = new System.Windows.Forms.Button();
             this.setTeamButton = new System.Windows.Forms.Button();
             this.teamNameTextBox = new System.Windows.Forms.TextBox();
+            this.closerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pitcherButton
@@ -48,7 +49,7 @@
             this.pitcherButton.Name = "pitcherButton";
             this.pitcherButton.Size = new System.Drawing.Size(132, 23);
             this.pitcherButton.TabIndex = 111;
-            this.pitcherButton.Text = "Pitcher Name";
+            this.pitcherButton.Text = "Starting Pitcher Name";
             this.pitcherButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.pitcherButton.UseVisualStyleBackColor = true;
             this.pitcherButton.Click += new System.EventHandler(this.pitcherButton_Click);
@@ -145,7 +146,7 @@
             // 
             // setTeamButton
             // 
-            this.setTeamButton.Location = new System.Drawing.Point(74, 341);
+            this.setTeamButton.Location = new System.Drawing.Point(74, 359);
             this.setTeamButton.Name = "setTeamButton";
             this.setTeamButton.Size = new System.Drawing.Size(132, 23);
             this.setTeamButton.TabIndex = 112;
@@ -163,11 +164,22 @@
             this.teamNameTextBox.TabIndex = 113;
             this.teamNameTextBox.Text = "Team Name";
             // 
+            // closerButton
+            // 
+            this.closerButton.Location = new System.Drawing.Point(74, 328);
+            this.closerButton.Name = "closerButton";
+            this.closerButton.Size = new System.Drawing.Size(132, 23);
+            this.closerButton.TabIndex = 114;
+            this.closerButton.Text = "Closer 1";
+            this.closerButton.UseVisualStyleBackColor = true;
+            this.closerButton.Click += new System.EventHandler(this.closerButton_Click);
+            // 
             // teamMakerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 376);
+            this.ClientSize = new System.Drawing.Size(284, 394);
+            this.Controls.Add(this.closerButton);
             this.Controls.Add(this.teamNameTextBox);
             this.Controls.Add(this.setTeamButton);
             this.Controls.Add(this.pitcherButton);
@@ -203,5 +215,6 @@
         private System.Windows.Forms.Button player1Button;
         private System.Windows.Forms.Button setTeamButton;
         private System.Windows.Forms.TextBox teamNameTextBox;
+        private System.Windows.Forms.Button closerButton;
     }
 }

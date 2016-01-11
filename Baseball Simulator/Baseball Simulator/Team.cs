@@ -13,6 +13,7 @@ namespace Baseball_Simulator
     {
         public Player[] playerList { get; set; }
         public Player startingPitcher { get; set; }
+        public Player closer { get; set; }
         public string teamName { get; set; }
         public Team()
         {
@@ -20,6 +21,7 @@ namespace Baseball_Simulator
             for (int i = 0; i < 9; i++)
                 playerList[i] = new Player();
             startingPitcher = new Player();
+            closer = new Player();
             teamName = "";
         }
     }
